@@ -1,0 +1,8 @@
+ipykernel
+pandas
+numpy
+scipy 
+matplotlib 
+pandas 
+sympy 
+nose
