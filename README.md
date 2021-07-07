@@ -1,6 +1,6 @@
 # Getting started
 
-## Set up WSL 2
+## Sett opp WSL 2
 1. Åpne Powershell som admin
 2. Kjør kommandoen:
 
@@ -44,16 +44,17 @@
 2. Kjør kommandoen 
     
     `sudo apt install zsh -y && chsh -s $(which zsh)`
+
 3. Åpne en ny fane og følg anvisningene for å sette opp zsh.
-    * Velg option 1 hvis du er i tvil hva på hva du skal lage.
+    * Velg option 1 hvis du er i tvil
 
 ## Sett opp WSL2 Ubuntu
 1. Åpne en ny fane i WSL 
-2. Clone dette repoet
-3. Naviger til repoet
+2. Clone repoet fra github
+3. Naviger til repoet i terminalen
 4. Kjør sriptet 
 
-    `./setup.sh`
+    `/bin/bash setup.sh`
 
 5. Åpne repoet i VS Code med kommandoen
 
@@ -61,4 +62,8 @@
 
 
 ## Kjør opp container i VS Code
-1. Naviger 
+1. Åpne repoet i VS Code
+2. Trykk CTRL + p
+3. Skriv 
+    
+    `> remote-containers: reopen in container`
