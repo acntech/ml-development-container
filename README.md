@@ -55,14 +55,12 @@
 
 # Troubleshooting
 ### __Hjelp jeg får ikke til git push/pull  fra devcontainer__
-* Forklaring
 
-    Du har tidligere clonet repoet med ssh, lagt til ssh key på github og får nå meldingen
-    >Permission denied (publickey)
-    
-    i devcontainer terminalen når du prøver å nå remote git repository.
+Du har tidligere clonet repoet med ssh, lagt til ssh key på github og får nå meldingen
+>Permission denied (publickey)
 
-    [Løsningen](https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys) er å bruke SSH Agent og legge til key i agenten på WSL terminalen.
+i devcontaineren når du prøver å nå remote git repository.
+
 * Fix
     - Åpne terminal og kjør kommandoen 
 
@@ -86,17 +84,16 @@
 
         `code .`
     
-    - Gjenåpne repoet i container
+    - Gjenåpne repoet i devcontainer inne på VSCode 
     - Prøv å kjøre kommandoen
 
         `git fetch`
 
-        for å se om ssh key nå fungerer i container
+        for å se om ssh key nå fungerer i devcontainer
         
 ### __Hjelp jeg får ikke til å pinge Github fra WSL__
-* Forklaring
 
-    Mest sannsynlig er det en DNS-feil på WSL.
+Mest sannsynlig er det en DNS-feil på WSL.
 
 * Quick fix
     - Åpne /etc/resolv.conf
