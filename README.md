@@ -4,37 +4,15 @@
 - Fortsett guiden for linux og macos
 
 ## Sett opp VS Code
-1. Last ned VS Code
-    https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
+1. Last ned og installer VS Code for ditt operativsystem
+    - [Windows](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user)
+    - [OSX](https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal)
+    - [Debian/Ubuntu](https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64)
+    
 
-2. Installer programmet
-
-3. Åpne VS Code og installer extensions
+2. Åpne VS Code og installer extensions
     * Remote - WSL
     * Remote - Containers
-
-## Sett opp zsh (optional)
-1. Åpne en ny fane i WSL
-2. Kjør kommandoen 
-    
-    `sudo apt install zsh -y && chsh -s $(which zsh)`
-
-3. Åpne en ny fane og følg anvisningene for å sette opp zsh.
-    * Velg option 1 hvis du er i tvil
-
-
-## Sett opp repo
-1. Åpne en ny fane i terminalen
-2. Clone repoet fra github
-3. Naviger til repoet i terminalen
-4. Kjør sriptet 
-
-    `/bin/bash setup.sh`
-
-5. Åpne repoet i VS Code med kommandoen
-
-    `code ./`
-
 
 ## Kjør opp container i VS Code
 1. Åpne repoet i VS Code
@@ -67,23 +45,25 @@
 
 8. Last ned Linux fra MS Store (trykk Get/Hent knappen i MS Store), feks:
 
-    OS | URL | Anbefalt
-    -|-|-
-    Ubuntu 20.04 LTS | https://www.microsoft.com/store/apps/9n6svws3rx71 | ☑️
-    Ubuntu 18.04 LTS | https://www.microsoft.com/store/apps/9N9TNGVNDL3Q | ➖
-    Debian GNU/Linux | https://www.microsoft.com/store/apps/9MSVKQC78PK6 | ➖
+    OS | Anbefalt
+    -|-
+    [Ubuntu 20.04 LTS](https://www.microsoft.com/store/apps/9n6svws3rx71) | ☑️
+    [Ubuntu 18.04 LTS](https://www.microsoft.com/store/apps/9N9TNGVNDL3Q) | ➖
+    [Debian GNU/Linux](https://www.microsoft.com/store/apps/9MSVKQC78PK6) | ➖
 
 9. Åpne WSL2 terminal, sjekk at det fungerer og start fra [toppen](#toppen) av denne readme
 
 # Troubleshooting
-Hjelp jeg får ikke til å pinge eller pushe til github:
-* Forklaring:
-    - Mest sannsynlig er det en DNS-feil på WSL.
-* Quickfix:
+### __Hjelp jeg får ikke til å pinge eller pushe til Github fra WSL__
+* Forklaring
+
+    Mest sannsynlig er det en DNS-feil på WSL.
+
+* Quick fix
     - Åpne /etc/resolv.conf
 
         `sudo nano /etc/resolv.conf`
-    - Se til at filen ser slik ut:
+    - Modifiser filen sånn at innholdet ser slikt ut:
         ```
         nameserver 8.8.8.8
         nameserver 8.8.4.4
