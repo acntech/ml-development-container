@@ -63,30 +63,36 @@
     i devcontainer terminalen når du prøver å nå remote git repository.
 
     [Løsningen](https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys) er å bruke SSH Agent og legge til key i agenten på WSL terminalen.
-* Quick fix
+* Fix
     - Åpne terminal og kjør kommandoen 
 
-        `eval "$(ssh-agent -s)"`
-    - Legg til ssh key du brukte for repoet på git
+        `sudo apt install keychain socat -y`
 
-        `ssh-add $HOME/.ssh/<github_rsa>`
-* Long fix
-    - Gjør Quick fix
-    - Legg til disse linjene i ~/.bashrc eller ~/.zshrc
+    -  Åpne ~/.bash_profile (eller ~/.zprofile hvis du bruker zsh)
 
-        ```shell
-            if [ -z "$SSH_AUTH_SOCK" ]; then
-                # Check for a currently running instance of the agent
-                RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-                if [ "$RUNNING_AGENT" = "0" ]; then
-                        # Launch a new instance of the agent
-                        ssh-agent -s &> $HOME/.ssh/ssh-agent
-                fi
-                eval `cat $HOME/.ssh/ssh-agent`
-            fi
-        ```
+        `nano ~/.bash_profile` 
+        
+        (eller `nano ~/.zprofile` )
+    
+    - Legg til navnet på ssh key du brukte for repoet på git
 
+        `eval $(keychain --eval --agents ssh <key_rsa>)`
 
+    - Lukk eventuelle åpne VS Code vinduer
+    - Lukk WSL terminaler
+    - Åpne ny WSL terminal
+    - Naviger til repoet
+    - Kjør kommandoen
+
+        `code .`
+    
+    - Gjenåpne repoet i container
+    - Prøv å kjøre kommandoen
+
+        `git fetch`
+
+        for å se om ssh key nå fungerer i container
+        
 ### __Hjelp jeg får ikke til å pinge Github fra WSL__
 * Forklaring
 
