@@ -16,7 +16,7 @@
 
 ## Kjør opp container i VS Code
 1. Åpne repoet i VS Code
-2. Trykk CTRL + p
+2. Trykk CTRL + P
 3. Skriv 
     
     `> remote-containers: reopen in container`
@@ -54,7 +54,40 @@
 9. Åpne WSL2 terminal, sjekk at det fungerer og start fra [toppen](#toppen) av denne readme
 
 # Troubleshooting
-### __Hjelp jeg får ikke til å pinge eller pushe til Github fra WSL__
+### __Hjelp jeg får ikke til git push/pull  fra devcontainer__
+* Forklaring
+
+    Du har tidligere clonet repoet med ssh, lagt til ssh key på github og får nå meldingen
+    >Permission denied (publickey)
+    
+    i devcontainer terminalen når du prøver å nå remote git repository.
+
+    [Løsningen](https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys) er å bruke SSH Agent og legge til key i agenten på WSL terminalen.
+* Quick fix
+    - Åpne terminal og kjør kommandoen 
+
+        `eval "$(ssh-agent -s)"`
+    - Legg til ssh key du brukte for repoet på git
+
+        `ssh-add $HOME/.ssh/<github_rsa>`
+* Long fix
+    - Gjør Quick fix
+    - Legg til disse linjene i ~/.bashrc eller ~/.zshrc
+
+        ```shell
+            if [ -z "$SSH_AUTH_SOCK" ]; then
+                # Check for a currently running instance of the agent
+                RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+                if [ "$RUNNING_AGENT" = "0" ]; then
+                        # Launch a new instance of the agent
+                        ssh-agent -s &> $HOME/.ssh/ssh-agent
+                fi
+                eval `cat $HOME/.ssh/ssh-agent`
+            fi
+        ```
+
+
+### __Hjelp jeg får ikke til å pinge Github fra WSL__
 * Forklaring
 
     Mest sannsynlig er det en DNS-feil på WSL.
