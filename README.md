@@ -74,3 +74,45 @@
     Debian GNU/Linux | https://www.microsoft.com/store/apps/9MSVKQC78PK6 | ➖
 
 9. Åpne WSL2 terminal, sjekk at det fungerer og start fra [toppen](#toppen) av denne readme
+
+# Troubleshooting
+Hjelp jeg får ikke til å pinge eller pushe til github:
+* Forklaring:
+    - Mest sannsynlig er det en DNS-feil på WSL.
+* Quickfix:
+    - Åpne /etc/resolv.conf
+
+        `sudo nano /etc/resolv.conf`
+    - Se til at filen ser slik ut:
+        ```
+        nameserver 8.8.8.8
+        nameserver 8.8.4.4
+        ```
+
+* Long fix:
+    - Åpne /etc/wsl.conf
+
+        `sudo nano /etc/wsl.conf`
+    - Se til at filen ser slik ut:
+        ```
+        [network]
+        generateResolvConf = false
+        ```
+    - Restart WSL
+        * Lukk alle WSL vinduene
+        * Åpne cmd.exe
+        * Kjør kommandoen: 
+            
+            `wsl --shutdown` 
+        * Åpne WSL igjen
+    - Lag ny /etc/resolv.conf
+        * Fjern linken til /etc/resolv.conf
+        
+            `sudo rm /etc/resolv.conf`
+        * Lag ny fil
+
+            `sudo nano /etc/resolv.conf`
+            ```
+            nameserver 8.8.8.8
+            nameserver 8.8.4.4
+            ```
