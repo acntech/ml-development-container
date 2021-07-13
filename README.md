@@ -3,10 +3,17 @@
 - Start [HER](#windows) vis du bruker Windows
 - Fortsett guiden for linux og macos
 
+## Installer Docker Desktop
+1. Last ned og installer Docker Desktop for ditt operativsystem
+    - [Windows](https://desktop.docker.com/win/stable/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+    - [MacOS - Intel chip](https://desktop.docker.com/mac/stable/amd64/Docker.dmg?utm_source=docker&amp;utm_medium=webreferral&amp;utm_campaign=dd-smartbutton&amp;utm_location=module)
+    - [MacOS - Apple chip](https://desktop.docker.com/mac/stable/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+2. Åpne Docker Desktop og verifiser at programmet ble installert.
+
 ## Sett opp VS Code
 1. Last ned og installer VS Code for ditt operativsystem
     - [Windows](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user)
-    - [OSX](https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal)
+    - [MacOS](https://code.visualstudio.com/sha/download?build=stable&os=darwin-universal)
     - [Debian/Ubuntu](https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64)
     
 
