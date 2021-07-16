@@ -23,7 +23,7 @@
 
 ## Kjør opp container i VS Code
 1. Åpne repoet i VS Code
-2. Trykk CTRL + P
+2. Trykk CTRL (⌘) + SHIFT + P
 3. Skriv 
     
     `> remote-containers: reopen in container`
@@ -45,7 +45,7 @@
     
     https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
-6. Åpne Powershell som admin
+6. Åpne commandline (cmd.exe) som admin
 7. Kjør kommandoen
 
     `wsl --set-default-version 2`
