@@ -5,6 +5,7 @@
 		"dockerfile": "Dockerfile",
 		"args": {
 			"INSTALL_NODE": "true",
+			"PYTHON_VERSION": "3.8",
 			"NODE_VERSION": "lts/*"
 		}
 	},

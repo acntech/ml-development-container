@@ -12,8 +12,8 @@ RUN if [ -f "/tmp/conda-tmp/environment.yml" ]; then /opt/conda/bin/conda env up
     && rm -rf /tmp/conda-tmp
 
 # [Optional] Uncomment to install a different version of Python than the default
-ARG VARIANT="3.8"
-RUN conda install -y python=${VARIANT} \
+ARG PYTHON_VERSION="3"
+RUN conda install -y python=${PYTHON_VERSION} \
     && pip install --no-cache-dir pipx \
     && pipx reinstall-all
 
